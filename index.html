@@ -1,10 +1,188 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Hola</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>github.midominio.es</title>
+  <meta name="description" content="Página de presentación - github.midominio.es" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --accent1:#7c3aed; /* purple */
+      --accent2:#06b6d4; /* cyan */
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(124,58,237,0.12), transparent), radial-gradient(1000px 500px at 90% 80%, rgba(6,182,212,0.08), transparent), var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .container{
+      width:100%;
+      max-width:980px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:16px;
+      padding:28px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      backdrop-filter: blur(8px);
+    }
+    header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:10px;
+    }
+    .logo {
+      width:56px;height:56px;border-radius:12px;
+      display:grid;place-items:center;font-weight:800;font-size:18px;
+      background: linear-gradient(135deg,var(--accent1),var(--accent2));
+      box-shadow: 0 6px 18px rgba(6,182,212,0.12);
+      color:white;
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{margin:4px 0 0;color:var(--muted);font-size:14px}
+
+    .hero{
+      display:flex;gap:24px;margin-top:18px;align-items:center;flex-wrap:wrap;
+    }
+    .left{flex:1;min-width:240px}
+    .right{width:320px;min-width:260px}
+
+    .title{
+      font-size:28px;margin:0 0 8px;line-height:1.05;color:#f8fbff;
+    }
+    .subtitle{color:var(--muted);margin:0 0 18px}
+
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,0.04);
+    }
+    .btn-cta{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;box-shadow:0 8px 24px rgba(124,58,237,0.16)}
+    .btn-ghost{background:var(--glass);color:var(--accent2)}
+
+    .meta{display:flex;gap:12px;margin-top:16px;color:var(--muted);font-size:13px}
+    .meta div{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:10px}
+
+    /* card preview */
+    .preview{
+      background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
+      border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .repo{
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .repo .row{display:flex;justify-content:space-between;align-items:center}
+    .repo .name{font-weight:700}
+    .repo .desc{color:var(--muted);font-size:13px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
+
+    footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;color:var(--muted);font-size:13px}
+
+    /* small screens */
+    @media (max-width:720px){
+      .hero{flex-direction:column}
+      .right{width:100%}
+      .title{font-size:22px}
+    }
+
+    /* little animated spark */
+    .spark{position:relative}
+    .spark:after{
+      content:'';position:absolute;right:-14px;top:-14px;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle,var(--accent2),transparent);filter:blur(8px);opacity:0.9;transform:scale(0.9);animation:pop 2.8s infinite ease-in-out;
+    }
+    @keyframes pop{0%{transform:scale(0.8);opacity:0.6}50%{transform:scale(1.2);opacity:1}100%{transform:scale(0.9);opacity:0.65}}
+  </style>
 </head>
 <body>
-    <h1>Hola Juanba</h1>
+  <div class="container">
+    <div class="card">
+      <header>
+        <div class="logo">GH</div>
+        <div>
+          <h1>github.juanbaurena.es</h1>
+          <p class="lead">Portafolio / espejo de repositorios · Rápido · Seguro · Elegante</p>
+        </div>
+        <div style="margin-left:auto;color:var(--muted);font-size:13px;">v1.0</div>
+      </header>
+
+      <section class="hero">
+        <div class="left">
+          <h2 class="title">Tu presencia en GitHub, con marca propia</h2>
+          <p class="subtitle">Presenta proyectos, readmes destacados, documentación o actúa como landing para tu organización. Diseño pensado para desarrolladores y equipos.</p>
+
+          <div class="buttons">
+            <a class="btn btn-cta" href="#" onclick="alert('Ir a GitHub...')">Abrir sitio</a>
+            <a class="btn btn-ghost" href="#" onclick="alert('Documentación...')">Cómo desplegar</a>
+            <a class="btn" href="#" onclick="alert('Contactar...')">Contacto</a>
+          </div>
+
+          <div class="meta">
+            <div>⭐ Fácil de clonar</div>
+            <div>⚡ Optimizado estático</div>
+            <div>🔒 HTTPS listo</div>
+          </div>
+        </div>
+
+        <aside class="right">
+          <div class="preview">
+            <div class="repo">
+              <div class="row">
+                <div>
+                  <div class="name">Juanba Ureña Roldán</div>
+                  <div class="desc">Repositorio de ejemplo que muestra la readme principal, demo y documentación.</div>
+                </div>
+                <div style="text-align:right;color:var(--muted);font-size:12px">Updated 2 days</div>
+              </div>
+
+              <div class="tags" style="margin-top:6px">
+                <span class="tag">javascript</span>
+                <span class="tag">node</span>
+                <span class="tag">docs</span>
+              </div>
+
+              <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+                <small style="color:var(--muted)">Última release</small>
+                <div style="margin-left:auto;font-weight:700">v2.3.0</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <footer>
+        <div>Creado con ♥ — github.juanbaurena.es</div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="spark">Docs</div>
+          <div>Licencia MIT</div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Small enhancement: keyboard shortcut to focus 'Abrir sitio' (K) -->
+  <script>
+    document.addEventListener('keydown', (e)=>{
+      if(e.key.toLowerCase()==='k'){
+        const el = document.querySelector('.btn-cta');
+        if(el) el.focus();
+      }
+    })
+  </script>
 </body>
 </html>
