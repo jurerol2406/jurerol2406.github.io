@@ -2,187 +2,97 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>github.midominio.es</title>
-  <meta name="description" content="Página de presentación - github.midominio.es" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Página de presentación — Juanba Ureña Roldan</title>
   <style>
     :root{
       --bg:#0f1724; /* deep navy */
       --card:#0b1220;
-      --accent1:#7c3aed; /* purple */
-      --accent2:#06b6d4; /* cyan */
-      --muted:#94a3b8;
-      --glass: rgba(255,255,255,0.04);
+      --accent:#7c5cff;
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.03);
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: radial-gradient(1200px 600px at 10% 20%, rgba(124,58,237,0.12), transparent), radial-gradient(1000px 500px at 90% 80%, rgba(6,182,212,0.08), transparent), var(--bg);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:40px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .container{
-      width:100%;
-      max-width:980px;
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.04);
-      border-radius:16px;
-      padding:28px;
-      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
-      backdrop-filter: blur(8px);
-    }
-    header{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      margin-bottom:10px;
-    }
-    .logo {
-      width:56px;height:56px;border-radius:12px;
-      display:grid;place-items:center;font-weight:800;font-size:18px;
-      background: linear-gradient(135deg,var(--accent1),var(--accent2));
-      box-shadow: 0 6px 18px rgba(6,182,212,0.12);
-      color:white;
-    }
-    h1{margin:0;font-size:20px}
-    p.lead{margin:4px 0 0;color:var(--muted);font-size:14px}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:#e6eef8;background:linear-gradient(180deg,var(--bg),#071026);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{width:100%;max-width:880px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:28px;box-shadow:0 6px 30px rgba(2,6,23,0.6);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.04);display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:center}
+    .avatar{width:140px;height:140px;border-radius:12px;background:var(--glass);display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    h1{margin:0;font-size:26px;letter-spacing:-0.3px}
+    p.lead{color:var(--muted);margin:8px 0 18px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);transition:transform .12s ease, box-shadow .12s ease}
+    .btn:active{transform:translateY(1px)}
+    .btn svg{width:18px;height:18px;opacity:0.95}
+    .btn:hover{box-shadow:0 6px 18px rgba(124,92,255,0.12)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#5ab0ff);color:#071026;border:none}
+    .meta{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+    .bio{margin-top:8px;color:#cfe4ff}
 
-    .hero{
-      display:flex;gap:24px;margin-top:18px;align-items:center;flex-wrap:wrap;
+    /* responsive */
+    @media (max-width:640px){
+      .card{grid-template-columns:1fr;text-align:center}
+      .avatar{margin:0 auto}
+      .actions{justify-content:center}
     }
-    .left{flex:1;min-width:240px}
-    .right{width:320px;min-width:260px}
-
-    .title{
-      font-size:28px;margin:0 0 8px;line-height:1.05;color:#f8fbff;
-    }
-    .subtitle{color:var(--muted);margin:0 0 18px}
-
-    .buttons{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,0.04);
-    }
-    .btn-cta{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;box-shadow:0 8px 24px rgba(124,58,237,0.16)}
-    .btn-ghost{background:var(--glass);color:var(--accent2)}
-
-    .meta{display:flex;gap:12px;margin-top:16px;color:var(--muted);font-size:13px}
-    .meta div{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:10px}
-
-    /* card preview */
-    .preview{
-      background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
-      border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);
-    }
-    .repo{
-      display:flex;flex-direction:column;gap:8px;
-    }
-    .repo .row{display:flex;justify-content:space-between;align-items:center}
-    .repo .name{font-weight:700}
-    .repo .desc{color:var(--muted);font-size:13px}
-    .tags{display:flex;gap:8px;flex-wrap:wrap}
-    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
-
-    footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;color:var(--muted);font-size:13px}
-
-    /* small screens */
-    @media (max-width:720px){
-      .hero{flex-direction:column}
-      .right{width:100%}
-      .title{font-size:22px}
-    }
-
-    /* little animated spark */
-    .spark{position:relative}
-    .spark:after{
-      content:'';position:absolute;right:-14px;top:-14px;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle,var(--accent2),transparent);filter:blur(8px);opacity:0.9;transform:scale(0.9);animation:pop 2.8s infinite ease-in-out;
-    }
-    @keyframes pop{0%{transform:scale(0.8);opacity:0.6}50%{transform:scale(1.2);opacity:1}100%{transform:scale(0.9);opacity:0.65}}
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <header>
-        <div class="logo">GH</div>
-        <div>
-          <h1>github.juanbaurena.es</h1>
-          <p class="lead">Portafolio / espejo de repositorios · Rápido · Seguro · Elegante</p>
-        </div>
-        <div style="margin-left:auto;color:var(--muted);font-size:13px;">v1.0</div>
-      </header>
-
-      <section class="hero">
-        <div class="left">
-          <h2 class="title">Tu presencia en GitHub, con marca propia</h2>
-          <p class="subtitle">Presenta proyectos, readmes destacados, documentación o actúa como landing para tu organización. Diseño pensado para desarrolladores y equipos.</p>
-
-          <div class="buttons">
-            <a class="btn btn-cta" href="#" onclick="alert('Ir a GitHub...')">Abrir sitio</a>
-            <a class="btn btn-ghost" href="#" onclick="alert('Documentación...')">Cómo desplegar</a>
-            <a class="btn" href="#" onclick="alert('Contactar...')">Contacto</a>
-          </div>
-
-          <div class="meta">
-            <div>⭐ Fácil de clonar</div>
-            <div>⚡ Optimizado estático</div>
-            <div>🔒 HTTPS listo</div>
-          </div>
-        </div>
-
-        <aside class="right">
-          <div class="preview">
-            <div class="repo">
-              <div class="row">
-                <div>
-                  <div class="name">Juanba Ureña Roldán</div>
-                  <div class="desc">Repositorio de ejemplo que muestra la readme principal, demo y documentación.</div>
-                </div>
-                <div style="text-align:right;color:var(--muted);font-size:12px">Updated 2 days</div>
-              </div>
-
-              <div class="tags" style="margin-top:6px">
-                <span class="tag">javascript</span>
-                <span class="tag">node</span>
-                <span class="tag">docs</span>
-              </div>
-
-              <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-                <small style="color:var(--muted)">Última release</small>
-                <div style="margin-left:auto;font-weight:700">v2.3.0</div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <footer>
-        <div>Creado con ♥ — github.juanbaurena.es</div>
-        <div style="display:flex;gap:12px;align-items:center">
-          <div class="spark">Docs</div>
-          <div>Licencia MIT</div>
-        </div>
-      </footer>
+  <main class="card" role="main">
+    <div class="avatar" aria-hidden="true">
+      <!-- Imagen de perfil: reemplaza por tu propia foto -->
+      <svg width="140" height="140" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+        <rect width="120" height="120" rx="12" fill="url(#g)"/>
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0" stop-color="#3b82f6"/>
+            <stop offset="1" stop-color="#7c5cff"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(12,12)" fill="#fff" opacity="0.9">
+          <circle cx="48" cy="28" r="18"/>
+          <path d="M6 90c0-22 24-36 42-36s42 14 42 36H6z"/>
+        </g>
+      </svg>
     </div>
-  </div>
 
-  <!-- Small enhancement: keyboard shortcut to focus 'Abrir sitio' (K) -->
-  <script>
-    document.addEventListener('keydown', (e)=>{
-      if(e.key.toLowerCase()==='k'){
-        const el = document.querySelector('.btn-cta');
-        if(el) el.focus();
-      }
-    })
-  </script>
+    <div>
+      <h1>Juanba Ureña Roldan</h1>
+      <p class="lead">Bienvenido a mi página de presentación. Soy [Tu profesión o descripción breve]. Me encanta crear cosas, colaborar y aprender cada día.</p>
+
+      <div class="actions">
+        <!-- Botón principal (ej. Portafolio / Contacto) -->
+        <a class="btn primary" href="#contacto" aria-label="Contacto">Contacto</a>
+
+        <!-- Redes sociales: reemplaza los enlaces con tus URLs -->
+        <a class="btn" href="https://twitter.com/Ureba102" target="_blank" rel="noopener" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.8c-.7.3-1.5.5-2.2.6.8-.5 1.4-1.3 1.7-2.3-.8.5-1.6.9-2.6 1.1A3.7 3.7 0 0016.1 4c-2 0-3.6 1.6-3.6 3.6 0 .3 0 .6.1.9-3-.2-5.6-1.6-7.4-3.8-.3.5-.5 1.1-.5 1.8 0 1.3.7 2.5 1.9 3.2-.6 0-1.2-.2-1.7-.5v.1c0 1.8 1.3 3.3 3 3.6-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1.5 1.6 2 2.8 3.7 2.8A7.5 7.5 0 013 19.5a10.6 10.6 0 005.7 1.7c6.8 0 10.6-5.6 10.6-10.5v-.5c.7-.5 1.3-1.2 1.8-1.9-.7.3-1.5.5-2.3.6z"/></svg>
+          Twitter
+        </a>
+
+        <a class="btn" href="https://www.linkedin.com/in/tu_usuario" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11.02 0zM3 8.98h4v12H3zM9 8.98h3.8v1.6h.1c.5-.9 1.6-1.9 3.3-1.9 3.5 0 4.2 2.3 4.2 5.2v6.1h-4V14.6c0-1.6 0-3.6-2.2-3.6-2.2 0-2.5 1.7-2.5 3.4v6.5H9v-12z"/></svg>
+          LinkedIn
+        </a>
+
+        <a class="btn" href="https://github.com/jurerol2406" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.7 5.6.7 11.9c0 5 3.3 9.3 7.8 10.8.6.1.8-.3.8-.6v-2.1c-3.2.7-3.8-1.5-3.8-1.5-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7.7 2.3 1.1.3-.9.9-1.6 1.6-2-2.6-.3-5.3-1.3-5.3-6 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.4.1-2.9 0 0 1-.3 3.3 1.2a11.2 11.2 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.6.1 2.9.7.9 1.2 2 1.2 3.3 0 4.7-2.7 5.7-5.3 6 .9.8 1.6 2.2 1.6 4.4v6.6c0 .3.2.7.8.6 4.5-1.5 7.8-5.8 7.8-10.8C23.3 5.6 18.3.5 12 .5z"/></svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="bio" id="contacto">
+        <p>¿Quieres ponerte en contacto? Envía un correo a <a href="mailto:tu@correo.com" style="color:inherit;text-decoration:underline;">tu@correo.com</a> o usa cualquiera de las redes arriba.</p>
+      </div>
+
+      <div class="meta" style="margin-top:14px">
+        <div>📍 Granada, ES</div>
+        <div>💼 ASIR 2º</div>
+        <div>✨ Intereses: diseño, código, música</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pequeño pie de página -->
+  <footer style="position:fixed;left:16px;bottom:12px;color:rgba(255,255,255,0.06);font-size:12px">Hecho con ❤️ — Personaliza los enlaces y el texto</footer>
 </body>
 </html>
